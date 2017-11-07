@@ -31,15 +31,11 @@
   <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
 
-
- 
   $(function () {
     var socket = io();
     
     $('form').submit(function(){
-      //var message = $('#m').val();
-      //var name = $('#n').val();
-     
+
       var data = {
         message : $('#m').val(),
         name : $('#n').val()

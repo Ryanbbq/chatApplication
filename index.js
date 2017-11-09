@@ -16,10 +16,9 @@ io.on('connection',function(socket){
   console.log('Users connected:' + i);
   
     socket.on('chat message', function(data) {
-    console.log('message: ' + data.message);
-    console.log('name: ' + data.name);
-    data.users = i;
-    io.emit('chat message', data);
+      console.log('message: ' + data.message);
+      console.log('name: ' + data.name);
+      io.emit('chat message', data);
     });
     
    socket.on('disconnect',function(){
@@ -28,10 +27,9 @@ io.on('connection',function(socket){
         console.log('Users connected : ' + i);
     });
     
-    socket.on('users connected', function(i){
+    socket.on('users connected', function(){
       io.emit('users connected', i);
     });
-    
     
     
 });

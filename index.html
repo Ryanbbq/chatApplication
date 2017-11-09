@@ -73,7 +73,7 @@
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 
 <script>
-  $(function() {
+  document.addEventListener("DOMContentLoaded", function(event) {
     var socket = io();
 
 
@@ -96,25 +96,33 @@
       socket.emit('chat message', data);
       $('#n').hide();
       $('#m').val('');
-      $('#users').val('');
       $('#n').val(data.name);
       return false;
     });
-
-
+    
+    var totalUsers;
+    socket.emit('users connected', totalUsers);
+    
     socket.on('chat message', function(data) {
       console.log("in chat message event....");
       $('#messages').append("<li>  [" + data.name + "]     " + data.message + "</li>");
     });
-
-
+    
+    //socket.emit('users connected', 0);
+    socket.on('users connected', function(totalUsers) {
+          console.log("here!!!!"); 
+          $('#users').html(totalUsers); 
+    }); 
 
   });
+
+
+  
 </script>
 
 <body>
   <h1 class="display-1">Basic Chat Application</h1>
-  <h3>Users Connected: </h3><span id="users"></span>
+  <h3>Users Connected: <span id="users"></span></h3>
   <ul id="messages"></ul>
 
   <form>

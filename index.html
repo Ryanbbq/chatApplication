@@ -1,25 +1,18 @@
 <!doctype html>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 <html>
-
 <head>
   <title>Chat Application</title>
   <style>
-  
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font: 13px Helvetica, Arial;
     }
-
     form {
       background: #000;
       padding: 3px;
@@ -27,48 +20,34 @@
       bottom: 0;
       width: 100%;
     }
-
     form input {
       border: 0;
       padding: 10px;
-      width: 90%;
       margin-right: .5%;
     }
-
     form button {
-      width: 9%;
       background: rgb(130, 224, 255);
       border: none;
       padding: 10px;
     }
-
     #messages {
       list-style-type: none;
       margin: 0;
       padding: 0;
     }
-
     #messages li {
       padding: 5px 10px;
       color:white;
     }
-
-    #messages li:nth-child(odd) {
-      
-    }
-
     h1 {
       text-shadow: 3px 2px red;
       text-align: center;
       font-size: 50px;
       color: white;
     }
-
     li {
       font-size: 30px;
-
     }
-
     #b1 {
       background-color: red;
       /* Green */
@@ -82,45 +61,50 @@
       -webkit-transition-duration: 0.4s;
       /* Safari */
       transition-duration: 0.4s;
-
     }
-
     #b1:hover {
       background-color: red;
       color: white;
     }
-    
     h3{
       color:white;
     }
     body { 
-    opacity: 0.9;
-    filter: alpha(opacity=90); /* For IE8 and earlier */
-    background-image: url("http://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg");
+      opacity: 0.9;
+      filter: alpha(opacity=90); /* For IE8 and earlier */
+      background-image: url("http://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg");
     }
     body:hover {
-        opacity: 1.0;
-        filter: alpha(opacity=100); /* For IE8 and earlier */
+      opacity: 1.0;
+      filter: alpha(opacity=100); /* For IE8 and earlier */
     }
   </style>
 </head>
+<body>
+  <h1>Pacemaker's Chat Application</h1>
+  <h3>Users Connected: <span id="users"></span></h3>
+  <ul id="messages"></ul>
+  <div class="input-group input-group-lg">
+    <form>
+      <input id="n" autocomplete="off" placeholder="enter a username..." class="form-control" /> <input id="m" autocomplete="off" placeholder="enter a message..." class="form-control" /><button class="form-control" id="b1"> Send</button>
+    </form>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
     var socket = io();
 
-
     $('form').submit(function() {
-
       console.log("At a....");
 
       if (!$('#n').val()) {
         alert('Enter a name');
         return false;
       }
-
 
       var data = {
         users: 0,
@@ -150,21 +134,4 @@
     });
   });
 </script>
-
-<body>
-
-  <h1>Pacemaker's Chat Application</h1>
-  <h3>Users Connected: <span id="users"></span></h3>
-  <ul id="messages"></ul>
-
-  <div class="input-group input-group-lg">
-
-    <form>
-      <input id="n" autocomplete="off" placeholder="enter a username..." class="form-control" /> <input id="m" autocomplete="off" placeholder="enter a message..." class="form-control" /><button class="form-control" id="b1"> Send</button>
-    </form>
-  </div>
-
-
-</body>
-
 </html>

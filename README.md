@@ -11,7 +11,7 @@ Distribution:
 </break> We handled the interfaces between each other by collaborting on GitHub, and emailing each other. We met up in person to discuss certain parts of this chat application.
 
 ## What are known problems, if any, with your project?
-</break> A problem we encountered at first was confusion about whether it was an individual homework or group. Other than that, ....
+</break> A problem we encountered at first was confusion about whether it was an individual homework or group. Other than that, we struggled for a little on getting the user count, but we did get it.
 
 ## How would you improve it if you had more time?
-</break> If we had more time we would...
+</break> If we had more time we would make the chat just like a pop up version, which we might try for our actual final project. 

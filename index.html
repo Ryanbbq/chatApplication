@@ -1,11 +1,15 @@
 <!doctype html>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 <html>
 
 <head>
   <title>Chat Application</title>
   <style>
+  
     * {
       margin: 0;
       padding: 0;
@@ -46,16 +50,18 @@
 
     #messages li {
       padding: 5px 10px;
+      color:white;
     }
 
     #messages li:nth-child(odd) {
-      background: #eee;
+      
     }
 
     h1 {
+      text-shadow: 3px 2px red;
       text-align: center;
       font-size: 50px;
-      color: black;
+      color: white;
     }
 
     li {
@@ -63,9 +69,38 @@
 
     }
 
-    body {
-      background-image: url("https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Background.2e16d0ba.fill-1422x800.jpg");
-      opacity: 0.75;
+    #b1 {
+      background-color: red;
+      /* Green */
+      border: none;
+      color: white;
+      font-size: 16px;
+      background-color: white;
+      color: black;
+      border: 2px solid red;
+      cursor: pointer;
+      -webkit-transition-duration: 0.4s;
+      /* Safari */
+      transition-duration: 0.4s;
+
+    }
+
+    #b1:hover {
+      background-color: red;
+      color: white;
+    }
+    
+    h3{
+      color:white;
+    }
+    body { 
+    opacity: 0.9;
+    filter: alpha(opacity=90); /* For IE8 and earlier */
+    background-image: url("http://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg");
+    }
+    body:hover {
+        opacity: 1.0;
+        filter: alpha(opacity=100); /* For IE8 and earlier */
     }
   </style>
 </head>
@@ -99,35 +134,35 @@
       $('#n').val(data.name);
       return false;
     });
-    
+
     var totalUsers;
     socket.emit('users connected', totalUsers);
-    
+
     socket.on('chat message', function(data) {
       console.log("in chat message event....");
       $('#messages').append("<li>  [" + data.name + "]     " + data.message + "</li>");
     });
-    
+
     //socket.emit('users connected', 0);
     socket.on('users connected', function(totalUsers) {
-          console.log("here!!!!"); 
-          $('#users').html(totalUsers); 
-    }); 
-
+      console.log("here!!!!");
+      $('#users').html(totalUsers);
+    });
   });
-
-
-  
 </script>
 
 <body>
-  <h1 class="display-1">Basic Chat Application</h1>
+
+  <h1>Pacemaker's Chat Application</h1>
   <h3>Users Connected: <span id="users"></span></h3>
   <ul id="messages"></ul>
 
-  <form>
-    <input id="n" autocomplete="off" placeholder="name" /> <input id="m" autocomplete="off" placeholder="message" /><button>Send</button>
-  </form>
+  <div class="input-group input-group-lg">
+
+    <form>
+      <input id="n" autocomplete="off" placeholder="enter a username..." class="form-control" /> <input id="m" autocomplete="off" placeholder="enter a message..." class="form-control" /><button class="form-control" id="b1"> Send</button>
+    </form>
+  </div>
 
 
 </body>

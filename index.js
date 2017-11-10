@@ -32,6 +32,6 @@ io.on('connection', function(socket) {
 });
 
 http.listen(process.env.PORT || 5000, function() {
-  console.log('http://chat-application-ryanlb22.c9users.io:8080/');
+  console.log('http://directoryname-username.c9users.io:8080/');
   console.log("Server started");
 });

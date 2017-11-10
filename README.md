@@ -8,8 +8,6 @@
 ### npm start
 #### server will start on localhost.
 
-
-
 ## Names of your team members, including how you distributed the work between your team members.  Write about your strategy for handling the “interfaces” between each other’s code. 
 </break> The names of our team members are Ryan Lebon, Brian Little, Kristine Yvonne Laranjo, and Monique La Croix.
 
